@@ -78,8 +78,8 @@ const imagesMarkup = images.map(({ preview, original, description }) => `<li cla
 galleryRef.insertAdjacentHTML("afterbegin", imagesMarkup.join("\n"));
 
 
-let gallery = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionPosition: 'bottom',
+let gallery = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionPosition: "bottom",
   captionDelay: 250,
 });
