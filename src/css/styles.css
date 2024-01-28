@@ -24,12 +24,6 @@ button {
   cursor: pointer;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
 .nav-link {
   color: #2e2f42;
   font-family: Montserrat;
@@ -45,7 +39,28 @@ img {
 }
 
 /* ===================== GALLERY ========================== */
+.gallery {
+  background-color: #fff;
+  width: auto;
+  margin: 0 auto;
+  padding: 24px 156px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+img {
+  display: block;
+  width: 100%;
+  background: url(<path-to-image>), lightgray 0px -30px / 100% 180% no-repeat;
+}
 
+li {
+  list-style: none;
+  width: calc((100% - 48px) / 3);
+}
+.gallery-image:hover {
+  transform: scale(1.04);
+}
 /* ===================== FORM ========================== */
 .feedback-form {
   display: inline-flex;
