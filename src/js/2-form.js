@@ -1,6 +1,6 @@
 const formRef = document.querySelector(".feedback-form");
-const emailRef = document.querySelector("[name='email']");
-const messageRef = document.querySelector("[name='message']");
+const emailRef = formRef.elements['email'];
+const messageRef = formRef.elements['message'];
 
 formRef.addEventListener("input", onFormInput);
 
@@ -14,16 +14,22 @@ function onFormInput() {
 
 if (localStorage.length) {
     const userDataStorage = JSON.parse(localStorage.getItem("feedback-form-state"));
-    emailRef.value = userDataStorage.email;
-    messageRef.value = userDataStorage.message;
-};
+    if (userDataStorage.hasOwnProperty("email") && userDataStorage.hasOwnProperty("message")) {
+            emailRef.value = userDataStorage.email;
+            messageRef.value = userDataStorage.message;
+    }
+
+}
 
 formRef.addEventListener("submit", onFormSubmit);
 
 function onFormSubmit(event) {
     event.preventDefault();
     if (emailRef.value && messageRef.value) {
-    console.log(JSON.parse(localStorage.getItem("feedback-form-state")));
+    console.log({
+        email: emailRef.value.trim(),
+        message: messageRef.value.trim(),
+    });
     localStorage.removeItem("feedback-form-state");
     emailRef.value = "";
     messageRef.value = "";
